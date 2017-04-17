@@ -3,7 +3,7 @@ $(document).ready( function() {
         var valid = true; // valid flag
         var errorBorder = '#CC0000'; // error border color
         // loop through input elements
-        $("#name, #email, #message").each(function(){
+        $("#name, #email").each(function(){
             $(this).css('border-color','');
             // if value is empty
             if(!containText($(this).val())){
@@ -24,7 +24,7 @@ $(document).ready( function() {
         event.preventDefault(); 
     });
     // remove border on key up
-    $("#name, #email, #message").keyup(function() { 
+    $("#name, #email").keyup(function() { 
         $(this).css('border-color',''); 
     });
 });
