@@ -1,0 +1,44 @@
+@mixin menu-text {
+  font: {
+    family: $title-font-family;
+    size: 14px;
+    weight: 700;
+  }
+  text: {
+  	decoration: none;
+  	transform: uppercase;
+  }
+  color: $menu-link-color;
+}
+
+@mixin calc($property, $expression) {
+	#{$property}: -moz-calc(#{$expression});
+	#{$property}: -webkit-calc(#{$expression});
+	#{$property}: calc(#{$expression});
+}
+
+@mixin opacity($value){
+	$IEValue: $value*100;
+	opacity: $value;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+	filter: alpha(opacity=$IEValue);
+}
+
+@mixin input-placeholder($color, $opacity) {
+	&::-webkit-input-placeholder {
+		color: $color;
+		@include opacity($opacity);
+	}
+	&:-moz-placeholder {
+		color: $color;
+		@include opacity($opacity);
+	}
+	&::-moz-placeholder {
+		color: $color;
+		@include opacity($opacity);
+	}
+	&:-ms-input-placeholder {
+		color: $color;
+		@include opacity($opacity);
+	}
+}
